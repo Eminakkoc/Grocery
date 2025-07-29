@@ -9,4 +9,4 @@ export type Product = {
     category: ProductCategory;
 };
 
-export type ProductCategory = 'fruit' | 'veggie';
+export type ProductCategory = 'fruits' | 'veggies';

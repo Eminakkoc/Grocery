@@ -35,6 +35,7 @@ export default function Sidebar() {
         // Preserve other query params
         const params = new URLSearchParams(Array.from(searchParams.entries()));
         params.set('sort', order);
+        params.set('page', '1');
 
         router.replace(`?${params.toString()}`, { scroll: false });
     }
@@ -43,6 +44,7 @@ export default function Sidebar() {
         // Preserve other query params
         const params = new URLSearchParams(Array.from(searchParams.entries()));
         params.set('category', category);
+        params.set('page', '1');
 
         router.replace(`?${params.toString()}`, { scroll: false });
     }
