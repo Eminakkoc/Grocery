@@ -4,11 +4,14 @@
     --background: #ffffff;
     --foreground: #171717;
 
-    --default-text: rgb(51, 51, 51);
+    --default-text: #4c5169;
     --green-text: #65e3e7;
     --pink-text: #a24b6f;
     --blue-text: #4d65b4;
-    --header-text: #4c5169;
+    --gray: #bfbfbf;
+    --hover-gray: #a3a3a3;
+
+    --hover-green: #3dc6cb;
 }
 
 :root.dark {
@@ -16,10 +19,14 @@
     --foreground: #ededed;
 
     --default-text: #d9d9d9;
-    --header-text: #c7dcd0;
     --green-text: #30e1b9;
     --pink-text: #ed8099;
     --blue-text: #8fd3ff;
+
+    --gray: #ababab;
+    --hover-gray: #c7c7c7;
+
+    --hover-green: #b0fcfe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,10 +35,14 @@
         --foreground: #ededed;
 
         --default-text: #d9d9d9;
-        --header-text: #c7dcd0;
         --green-text: #30e1b9;
         --pink-text: #ed8099;
         --blue-text: #8fd3ff;
+
+        --gray: #ababab;
+        --hover-gray: #c7c7c7;
+
+        --hover-green: #b0fcfe;
     }
 }
 
@@ -39,6 +50,10 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type='radio'] {
+    accent-color: theme('colors.green.500');
 }
 
 @theme {
@@ -50,11 +65,17 @@ body {
     --color-pink-500: var(--pink-text);
     --color-blue-500: var(--blue-text);
     --color-head-500: var(--header-text);
+    --color-gray-500: var(--gray);
+    --color-hover-gray-500: var(--hover-gray);
+
+    --color-hover-green: var(--hover-green);
 
     --spacing-xs: 0.25rem;
     --spacing-s: 0.5rem;
     --spacing-m: 1rem;
     --spacing-l: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 4rem;
 
     --animate-openPageMenu-mobile: openPageMenuMobile 0.3s ease-in alternate;
     --animate-closePageMenu-mobile: closePageMenuMobile 0.3s ease-in alternate;
@@ -94,22 +115,22 @@ body {
 
 @layer components {
     .tiny-text {
-        @apply text-[0.75rem] max-md:text-[0.5rem];
+        @apply text-[0.75rem] max-md:text-[0.5rem] text-default-500;
     }
     .small-text {
-        @apply text-[1rem] max-md:text-[0.75rem];
+        @apply text-[1rem] max-md:text-[0.75rem] text-default-500;
     }
 
     .default-text {
-        @apply text-[1.25rem] max-md:text-[1rem];
+        @apply text-[1.25rem] max-md:text-[1rem] text-default-500;
     }
 
     .large-text {
-        @apply text-[1.5rem] max-md:text-[1.25rem];
+        @apply text-[1.5rem] max-md:text-[1.25rem] text-default-500;
     }
 
     .card {
-        @apply rounded-md border;
+        @apply rounded-md border-3 border-default-500;
     }
 }
 

@@ -30,7 +30,7 @@ export function constructSearchQuery(searchParams: SearchParams) {
             break;
     }
 
-    url += `${searchParams.page ?? 1}.json`;
+    url += `${searchParams.page ?? '1'}.json`;
 
     return url;
 }

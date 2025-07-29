@@ -6,14 +6,14 @@ export default function Pagination({
     totalPages,
     searchParams,
 }: {
-    currentPage: number;
+    currentPage: string;
     totalPages: number;
     searchParams: SearchParams;
 }) {
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    const pages = Array.from({ length: totalPages }, (_, i) => String(i + 1));
     const searchParameters = searchParams as Record<string, string>;
 
-    function getParams(page: number) {
+    function getParams(page: string) {
         const params: Record<string, string> = {};
 
         for (const key in searchParameters) {
@@ -22,14 +22,14 @@ export default function Pagination({
                 params[key] = value;
             }
         }
-        params.page = String(page);
+        params.page = page;
 
         return new URLSearchParams(params).toString();
     }
 
     return (
         <nav>
-            <ul className="flex gap-(--spacing-xs)">
+            <ul className="flex gap-(--spacing-m)">
                 {pages.map((p) => {
                     return (
                         <li key={p}>
@@ -41,8 +41,8 @@ export default function Pagination({
                                 }
                                 className={
                                     p === currentPage
-                                        ? 'font-bold underline'
-                                        : ''
+                                        ? 'default-text font-bold underline'
+                                        : 'default-text'
                                 }
                             >
                                 {p}

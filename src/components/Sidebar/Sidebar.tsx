@@ -65,7 +65,7 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`w-[150px] max-md:absolute md:sticky md:top-0 bg-background card ${panelOpened === MENU_STATUS.INITIAL || panelOpened === MENU_STATUS.CLOSED ? 'max-md:left-[-150px]' : 'max-md:left-[0px]'} ${panelOpened === MENU_STATUS.OPENED ? 'max-md:animate-openPageMenu-mobile' : ''} ${panelOpened === MENU_STATUS.CLOSED ? 'max-md:animate-closePageMenu-mobile' : ''}`}
+            className={`w-[150px] max-lg:absolute lg:sticky lg:top-0 bg-background card shrink-0 ${panelOpened === MENU_STATUS.INITIAL || panelOpened === MENU_STATUS.CLOSED ? 'max-lg:left-[-150px]' : 'max-lg:left-[0px]'} ${panelOpened === MENU_STATUS.OPENED ? 'max-lg:animate-openPageMenu-mobile' : ''} ${panelOpened === MENU_STATUS.CLOSED ? 'max-lg:animate-closePageMenu-mobile' : ''}`}
         >
             <div className="relative flex flex-col gap-(--spacing-s) p-(--spacing-s)">
                 <section className="p-(--spacing-s)">
@@ -153,7 +153,7 @@ export default function Sidebar() {
             </div>
             <button
                 onClick={handleToggleMenuOpen}
-                className="absolute card w-[40px] h-[40px] top-0 right-[-40px] bg-green-500 md:hidden"
+                className="absolute card w-[40px] h-[40px] top-0 right-[-40px] bg-green-500 lg:hidden"
             >
                 O
             </button>

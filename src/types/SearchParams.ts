@@ -1,7 +1,7 @@
 import { ProductCategory } from './Product';
 
 export type SearchParams = {
-    page?: number;
+    page?: string;
     category?: ProductCategory;
     sort?: 'ascending' | 'descending';
 };
