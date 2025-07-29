@@ -55,7 +55,22 @@ Login page call this api route when user clicks login button.
 
 If login page is a redirected page (in our case /checkout) , then the user will be redirected to the "redirectTo" page if the login is successful.
 
+# Cart & Checkout
+
+Cart button is on the right side of the header, a popup appears when user clicks to that button displaying the cart items with amount spinners and a remove option.
+
+User can proceed to checkout by clicking the "proceed" button to confirm payment in the checkout page.
+
+All items added/deleted/updated in the cart are sync with zustand and I have also used the persist feature of zustand to sync them with local storage as well.
+
+When the payment is successful, a success modal will appear and if user clicks "Done" button in that modal,
+store will be emptied and user will be redirected to the homepage.
+
 # Node & npm versions
 
 Node: v20.19.3
 Npm: 10.8.2
+
+# Scripts
+
+npm run dev -> Run project on local server

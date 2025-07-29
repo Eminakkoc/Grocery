@@ -4,14 +4,17 @@ import useOnClickOutside from '@/hooks/useOnClickOutside';
 import { useCartStore } from '@/store/useCartStore';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
-import { BASE_URL } from '@/constants/fetch';
+import Link from 'next/link';
+import CartItem from '../CartItem';
 
 export default function CartButtonWithPopup() {
     const [open, setOpen] = useState(false);
     const btnRef = useRef<HTMLButtonElement>(null);
     const popupRef = useRef<HTMLDivElement>(null);
     const items = useCartStore((state) => state.items);
+    const total = useCartStore((state) => state.getTotalAmount());
+    const addToCart = useCartStore((s) => s.addToCart);
+    const removeFromCart = useCartStore((s) => s.removeFromCart);
 
     useOnClickOutside(popupRef, () => setOpen(false));
 
@@ -54,51 +57,40 @@ export default function CartButtonWithPopup() {
                         {items.length === 0 ? (
                             <div className="small-text">Cart is empty.</div>
                         ) : (
-                            <div className="flex flex-col gap-(--spacing-s)">
+                            <div className="flex flex-col gap-(--spacing-s) max-h-[380px] overflow-auto">
                                 {items.map((item) => (
-                                    <div
+                                    <CartItem
                                         key={item.product.id}
-                                        className="grid grid-cols-[32px_86px_60px_76px] gap-(--spacing-s) items-center justify-between"
-                                    >
-                                        <Image
-                                            unoptimized
-                                            src={`${BASE_URL}${item.product.imageData}`}
-                                            className="pixelate"
-                                            width={32}
-                                            height={32}
-                                            alt={`${item.product.name} image`}
-                                        />
-                                        <span
-                                            className="small-text"
-                                            title={item.product.name}
-                                        >
-                                            {item.product.name}
-                                        </span>
-                                        <span className="small-text">
-                                            {item.amount} Kg(s)
-                                        </span>
-                                        <span className="font-bold text-right small-text">
-                                            {item.amount *
-                                                item.product.pricePerKgs
-                                                    .amount}{' '}
-                                            {item.product.pricePerKgs.currency}
-                                        </span>
-                                    </div>
+                                        item={item}
+                                        addToCart={addToCart}
+                                        removeFromCart={removeFromCart}
+                                    />
                                 ))}
                             </div>
                         )}
 
-                        <button
-                            className="card bg-green-500 hover:bg-hover-green disabled:bg-green-500 disabled:opacity-[0.4] py-(--spacing-s) rounded font-semibold cursor-pointer default-text mt-(--spacing-m)"
-                            disabled={items.length === 0}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                console.log('Proceed');
-                            }}
-                            type="button"
-                        >
-                            Proceed to checkout
-                        </button>
+                        {items.length > 0 && (
+                            <>
+                                <div className="flex justify-between items-center mt-(--spacing-s) py-(--spacing-s)">
+                                    <span className="small-text font-bold">
+                                        Total:
+                                    </span>
+                                    <span className="small-text font-bold text-pink-500">
+                                        {total.toFixed(2)}{' '}
+                                        {items[0]?.product.pricePerKgs.currency}
+                                    </span>
+                                </div>
+                                <Link
+                                    className="card text-center bg-green-500 hover:bg-hover-green disabled:bg-green-500 disabled:opacity-[0.4] py-(--spacing-s) rounded font-semibold cursor-pointer default-text"
+                                    href="/checkout"
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    Proceed to checkout
+                                </Link>
+                            </>
+                        )}
                     </div>,
                     document.body
                 )}
