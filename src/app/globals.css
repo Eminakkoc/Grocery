@@ -8,9 +8,11 @@
     --green-text: #65e3e7;
     --pink-text: #a24b6f;
     --blue-text: #4d65b4;
+    --orange: #fb9e5f;
+    --hover-orange: #e27d39;
+
     --gray: #bfbfbf;
     --hover-gray: #a3a3a3;
-
     --hover-green: #3dc6cb;
 }
 
@@ -22,6 +24,8 @@
     --green-text: #30e1b9;
     --pink-text: #ed8099;
     --blue-text: #8fd3ff;
+    --orange: #e27d39;
+    --hover-orange: #fb9e5f;
 
     --gray: #ababab;
     --hover-gray: #c7c7c7;
@@ -38,6 +42,8 @@
         --green-text: #30e1b9;
         --pink-text: #ed8099;
         --blue-text: #8fd3ff;
+        --orange: #e27d39;
+        --hover-orange: #fb9e5f;
 
         --gray: #ababab;
         --hover-gray: #c7c7c7;
@@ -67,12 +73,15 @@ button {
     --color-default-500: var(--default-text);
     --color-green-500: var(--green-text);
     --color-pink-500: var(--pink-text);
+    --color-orange-500: var(--orange);
+
     --color-blue-500: var(--blue-text);
     --color-head-500: var(--header-text);
     --color-gray-500: var(--gray);
     --color-hover-gray-500: var(--hover-gray);
 
     --color-hover-green: var(--hover-green);
+    --color-hover-orange: var(--hover-orange);
 
     --spacing-xs: 0.25rem;
     --spacing-s: 0.5rem;

@@ -1,48 +1,31 @@
+import { Product } from '@/types/Product';
 import { create } from 'zustand';
 
 type CartItem = {
-    productId: string;
+    product: Product;
     amount: number;
-    pricePerKgs: {
-        amount: number;
-        currency: string;
-    };
 };
 type CartState = {
     items: CartItem[];
-    setAmount: (
-        productId: string,
-        amount: number,
-        pricePerKgs: {
-            amount: number;
-            currency: string;
-        }
-    ) => void;
+    setAmount: (product: Product, amount: number) => void;
     getAmount: (productId: string) => CartItem | undefined;
-    addToCart: (
-        productId: string,
-        amount: number,
-        pricePerKgs: {
-            amount: number;
-            currency: string;
-        }
-    ) => void;
+    addToCart: (product: Product, amount: number) => void;
 };
 
 export const useCartStore = create<CartState>((set, get) => ({
     items: [],
-    setAmount: (productId, amount, pricePerKgs) =>
+    setAmount: (product, amount) =>
         set((state) => {
-            const items = state.items.some((i) => i.productId === productId)
+            const items = state.items.some((i) => i.product.id === product.id)
                 ? state.items.map((i) =>
-                      i.productId === productId ? { ...i, amount } : i
+                      i.product.id === product.id ? { ...i, amount } : i
                   )
-                : [...state.items, { productId, amount, pricePerKgs }];
+                : [...state.items, { product, amount }];
             return { items };
         }),
     getAmount: (productId) =>
-        get().items.find((i) => i.productId === productId),
-    addToCart: (productId, amount, pricePerKgs) => {
-        get().setAmount(productId, amount, pricePerKgs);
+        get().items.find((i) => i.product.id === productId),
+    addToCart: (product, amount) => {
+        get().setAmount(product, amount);
     },
 }));

@@ -22,8 +22,8 @@ export default async function ProductDetailPage({ params }: Props) {
     const product = (await res.json()) as ProductDetail;
 
     return (
-        <div className="flex flex-col justify-center py-(--spacing-2xl) max-lg:py-(--spacing-xl) gap-(--spacing-2xl)">
-            <div className="grid grid-cols-[200px_500px] max-md:grid-cols-[200px_300px] max-sm:grid-cols-[300px] max-sm:grid-rows-[300px_300px] gap-(--spacing-m) w-[700px] max-md:w-auto m-auto">
+        <div className="flex flex-col justify-center py-(--spacing-2xl) max-lg:py-(--spacing-xl) gap-(--spacing-2xl) w-[916px] m-auto max-lg:w-full">
+            <div className="grid grid-cols-[200px_500px] max-md:grid-cols-[200px_300px] max-sm:grid-cols-[300px] max-sm:grid-rows-[300px_300px] gap-(--spacing-m) w-[700px] max-md:w-auto max-lg:m-auto">
                 <div className="flex card items-center justify-center">
                     <Image
                         unoptimized
@@ -42,10 +42,7 @@ export default async function ProductDetailPage({ params }: Props) {
                         {product.pricePerKgs.amount}{' '}
                         {product.pricePerKgs.currency} / Kg
                     </span>
-                    <AmountSpinner
-                        productId={product.id}
-                        pricePerKgs={product.pricePerKgs}
-                    />
+                    <AmountSpinner product={product} />
                 </section>
             </div>
             <div className="flex flex-col gap-(--spacing-m) m-auto">

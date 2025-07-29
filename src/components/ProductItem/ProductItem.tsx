@@ -26,10 +26,7 @@ export default function ProductItem({ product }: Props) {
             <span className="default-text font-bold">
                 {product.pricePerKgs.amount} {product.pricePerKgs.currency} / Kg
             </span>
-            <AmountSpinner
-                productId={product.id}
-                pricePerKgs={product.pricePerKgs}
-            />
+            <AmountSpinner product={product} />
         </Link>
     );
 }

@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 import { useCartStore } from '@/store/useCartStore';
+import { Product } from '@/types/Product';
 
 type Props = {
-    productId: string;
-    pricePerKgs: {
-        amount: number;
-        currency: string;
-    };
+    product: Product;
 };
 
-export default function AmountSpinner({ productId, pricePerKgs }: Props) {
-    const storeAmount = useCartStore((s) => s.getAmount(productId));
+export default function AmountSpinner({ product }: Props) {
+    const storeAmount = useCartStore((s) => s.getAmount(product.id));
     const addToCart = useCartStore((s) => s.addToCart);
     const [input, setInput] = useState(storeAmount?.amount ?? 1);
 
@@ -67,7 +64,7 @@ export default function AmountSpinner({ productId, pricePerKgs }: Props) {
                 className="card bg-green-500 hover:bg-hover-green py-(--spacing-s) rounded font-semibold cursor-pointer default-text"
                 onClick={(e) => {
                     e.preventDefault();
-                    addToCart(productId, input, pricePerKgs);
+                    addToCart(product, input);
                 }}
                 type="button"
             >
