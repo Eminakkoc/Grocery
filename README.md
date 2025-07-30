@@ -23,8 +23,6 @@ Zustand's simple api interface and various features (presisting to local storage
 
 # Login cookie
 
-Cookie is stored as an "httpOnly" cookie due to read operation is always made in server side components and middleware. If there will be a use case where this cookie is to be read from a client component, then this decision should be reconsidered.
-
 Header component check the login status from an inner auth route api whenever a route path update happens.
 
 # Main page

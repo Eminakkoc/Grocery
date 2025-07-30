@@ -5,7 +5,6 @@ export async function POST() {
     const cookieStore = cookies();
 
     (await cookieStore).set('loggedIn', '', {
-        httpOnly: true,
         expires: new Date(0),
         maxAge: 0,
         path: '/',

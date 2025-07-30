@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 
 export async function GET() {
-    const loggedIn = (await cookies()).get('loggedIn')?.value;
+    const loggedIn = (await cookies()).get('loggedIn')?.value === 'true';
 
     if (loggedIn) {
         return Response.json({ loggedIn: true });
