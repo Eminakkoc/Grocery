@@ -33,8 +33,7 @@ export default function LoginForm() {
 
         if (res.ok) {
             console.log('redirecting... ', redirectTo);
-
-            router.replace(redirectTo);
+            window.location.href = redirectTo;
             setIsSubmitting(false);
         } else {
             res.json().then((errorResponse) => {
