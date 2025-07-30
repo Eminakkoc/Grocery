@@ -74,7 +74,7 @@ All items added/deleted/updated in the cart are sync with zustand and I have als
 When the payment is successful, a success modal will appear and if user clicks "Done" button in that modal,
 store will be emptied and user will be redirected to the homepage.
 
-# Theme Switcher
+# Theme Switcher & Unit Test
 
 I decided to add a custom hook for theme selection just to separate the logic from the component itself.
 
@@ -98,3 +98,4 @@ Npm: 10.8.2
 # Scripts
 
 npm run dev -> Run project on local server
+npm run test -> Run unit test for theme switcher custom hook useTheme

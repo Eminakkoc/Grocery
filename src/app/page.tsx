@@ -1,9 +1,8 @@
 import ProductList from '@/components/ProductList';
 import Sidebar from '@/components/Sidebar';
-import { SearchParams } from '@/types/SearchParams';
 
 type Props = {
-    searchParams: SearchParams;
+    searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 export default function Home({ searchParams }: Props) {
