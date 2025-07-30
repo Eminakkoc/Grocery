@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import CartItem from '../CartItem';
+import Image from 'next/image';
+import CartImage from '@/assets/shopping_cart.png';
 
 export default function CartButtonWithPopup() {
     const [open, setOpen] = useState(false);
@@ -32,12 +34,19 @@ export default function CartButtonWithPopup() {
             <button
                 ref={btnRef}
                 onClick={() => setOpen((v) => !v)}
-                className="relative button bg-orange-500 hover:bg-hover-orange"
+                className="relative button bg-orange-500 hover:bg-hover-orange p-(--spacing-xs)"
                 aria-haspopup="true"
                 aria-expanded={open}
                 aria-controls="cart-popup"
             >
-                Cart
+                <Image
+                    unoptimized
+                    src={CartImage}
+                    className="pixelate"
+                    width={32}
+                    height={32}
+                    alt="Filter sort image"
+                />
             </button>
 
             {mounted &&

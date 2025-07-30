@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Image from 'next/image';
+import FilterImage from '@/assets/filter.png';
 
 const MENU_STATUS = {
     INITIAL: 'initial',
@@ -155,7 +157,14 @@ export default function Sidebar() {
                 onClick={handleToggleMenuOpen}
                 className="absolute card w-[40px] h-[40px] top-0 right-[-40px] bg-green-500 lg:hidden"
             >
-                O
+                <Image
+                    unoptimized
+                    src={FilterImage}
+                    className="pixelate"
+                    width={32}
+                    height={32}
+                    alt="Filter sort image"
+                />
             </button>
         </aside>
     );
