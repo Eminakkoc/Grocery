@@ -41,7 +41,7 @@ export default function Header({ initialLoggedIn }: Props) {
 
     return (
         <header className="z-1 flex h-[80px] min-h-[80px] items-center pl-(--spacing-l) max-md:pl-(--spacing-m) pr-(--spacing-l) max-md:pr-(--spacing-m) justify-between bg-green-500 [box-shadow:0_6px_16px_0_rgba(0,0,0)]">
-            <span>Emin&apos;s Grocery</span>
+            <Link href="/">Emin&apos;s Grocery</Link>
             <div className="flex gap-(--spacing-m) max-md:gap-(--spacing-s) items-center">
                 <ThemeSwitcher />
                 {loggedIn && (

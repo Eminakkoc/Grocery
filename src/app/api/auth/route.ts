@@ -6,5 +6,9 @@ export async function GET() {
     if (loggedIn) {
         return Response.json({ loggedIn: true });
     }
-    return Response.json({ loggedIn: false });
+
+    return Response.json(
+        { loggedIn: false, error: 'Authentication failed' },
+        { status: 401 }
+    );
 }

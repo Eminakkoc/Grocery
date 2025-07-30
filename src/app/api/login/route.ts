@@ -11,5 +11,8 @@ export async function POST(req: Request) {
         return NextResponse.json({ success: true });
     }
 
-    return NextResponse.json({ success: false }, { status: 401 });
+    return NextResponse.json(
+        { success: false, error: { message: 'Wrong credentials!' } },
+        { status: 401 }
+    );
 }

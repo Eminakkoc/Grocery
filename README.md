@@ -19,6 +19,14 @@ Total payment amount will be calculated from this data.
 
 Cart data will be stored at local storage if the transaction has not been completed.
 
+Zustand's simple api interface and various features (presisting to local storage) made me to stick with this decision to use it in this project.
+
+# Login cookie
+
+Cookie is stored as an "httpOnly" cookie due to read operation is always made in server side components and middleware. If there will be a use case where this cookie is to be read from a client component, then this decision should be reconsidered.
+
+Header component check the login status from an inner auth route api whenever a route path update happens.
+
 # Main page
 
 Main page has 2 main parts which are:
@@ -65,6 +73,22 @@ All items added/deleted/updated in the cart are sync with zustand and I have als
 
 When the payment is successful, a success modal will appear and if user clicks "Done" button in that modal,
 store will be emptied and user will be redirected to the homepage.
+
+# Theme Switcher
+
+I decided to add a custom hook for theme selection just to separate the logic from the component itself.
+
+Component is responsible from opening a selection popup with 3 buttons which are:
+
+- Dark Mode
+- Light Mode
+- System preference
+
+If the selection is "Dark" or "Light", then it overrides the system preference all the time. Otherwise, system prefs are listened via "watchMedia" to adapt the app to the changes.
+
+# Error Boundary
+
+An error boundary for login operations is added to be used in login page, which displays the error message in a modal and also logs the error to the console.
 
 # Node & npm versions
 

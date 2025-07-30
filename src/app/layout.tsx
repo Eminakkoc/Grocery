@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Script from 'next/script';
 import Header from '@/components/Header';
 import { cookies } from 'next/headers';
 
@@ -30,23 +29,6 @@ export default async function RootLayout({
 
     return (
         <html lang="en">
-            <head>
-                {/* Im adding this script to be executed before the first paint and to avoid any FOUC - Flash of unstyled content*/}
-                <Script id="set-dark-mode" strategy="beforeInteractive">
-                    {`
-                        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.documentElement.classList.add('dark');
-                        }
-                        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                        if (e.matches) {
-                            document.documentElement.classList.add('dark');
-                        } else {
-                            document.documentElement.classList.remove('dark');
-                        }
-                        });
-                    `}
-                </Script>
-            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col`}
             >

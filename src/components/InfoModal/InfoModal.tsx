@@ -38,7 +38,7 @@ export default function InfoModal({
                 className="fixed inset-0 bg-black opacity-40"
                 aria-hidden="true"
             />
-            <div className="relative card bg-white rounded-lg shadow-xl p-(--spacing-m) flex flex-col items-center gap-(--spacing-m) min-w-[260px]">
+            <div className="relative card bg-background rounded-lg shadow-xl p-(--spacing-m) flex flex-col items-center gap-(--spacing-m) min-w-[260px]">
                 <div className="font-semibold large-text text-center">
                     {message}
                 </div>
