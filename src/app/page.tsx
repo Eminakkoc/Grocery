@@ -1,7 +1,7 @@
 import ProductList from '@/components/ProductList';
 import Sidebar from '@/components/Sidebar';
 
-export default function Page({
+export default async function Page({
     searchParams,
 }: {
     searchParams?: { [key: string]: string | string[] | undefined };

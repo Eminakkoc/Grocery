@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default async function ProductDetailPage({ params }: Props) {
-    const { id } = params;
+    const { id } = await params;
     const res = await fetch(`${API_URL}${id}.json`);
 
     if (!res.ok) {
