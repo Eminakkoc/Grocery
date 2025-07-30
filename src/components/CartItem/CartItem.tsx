@@ -33,7 +33,7 @@ export default function CartItem({ item, addToCart, removeFromCart }: Props) {
                 <div className="flex items-center gap-(--spacing-xs)">
                     <button
                         aria-label="Decrease amount"
-                        className="card cursor-pointer flex items-center justify-center p-(--spacing-s) rounded bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
+                        className="button flex items-center justify-center bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
                         onClick={(e) => {
                             e.preventDefault();
                             addToCart(item.product, item.amount - 1);
@@ -60,12 +60,11 @@ export default function CartItem({ item, addToCart, removeFromCart }: Props) {
                     />
                     <button
                         aria-label="Increase amount"
-                        className="card cursor-pointer flex items-center justify-center p-(--spacing-s) rounded bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
+                        className="button flex items-center justify-center bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
                         onClick={(e) => {
                             e.preventDefault();
                             addToCart(item.product, item.amount + 1);
                         }}
-                        disabled={item.amount < 1}
                         type="button"
                     >
                         +

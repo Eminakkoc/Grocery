@@ -21,7 +21,7 @@ export default function AmountSpinner({ product }: Props) {
                 <div className="flex items-center gap-2">
                     <button
                         aria-label="Decrease amount"
-                        className="card cursor-pointer flex items-center justify-center p-(--spacing-s) rounded bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
+                        className="button flex items-center justify-center bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
                         onClick={(e) => {
                             e.preventDefault();
                             handleChange(input - 1);
@@ -48,7 +48,7 @@ export default function AmountSpinner({ product }: Props) {
                     />
                     <button
                         aria-label="Increase amount"
-                        className="card cursor-pointer flex items-center justify-center p-(--spacing-s) rounded bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
+                        className="button flex items-center justify-center bg-gray-500 hover:bg-hover-gray-500 default-text font-bold w-[30px] h-[30px]"
                         onClick={(e) => {
                             e.preventDefault();
                             handleChange(input + 1);
@@ -61,7 +61,7 @@ export default function AmountSpinner({ product }: Props) {
                 </div>
             </div>
             <button
-                className="card bg-green-500 hover:bg-hover-green py-(--spacing-s) rounded font-semibold cursor-pointer default-text"
+                className="button bg-green-500 hover:bg-hover-green py-(--spacing-s) font-semibold default-text"
                 onClick={(e) => {
                     e.preventDefault();
                     addToCart(product, input);

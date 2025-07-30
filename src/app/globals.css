@@ -7,49 +7,31 @@
     --default-text: #4c5169;
     --green-text: #65e3e7;
     --pink-text: #a24b6f;
-    --blue-text: #4d65b4;
+    --blue-text: #778fde;
     --orange: #fb9e5f;
     --hover-orange: #e27d39;
 
     --gray: #bfbfbf;
     --hover-gray: #a3a3a3;
     --hover-green: #3dc6cb;
+    --hover-blue: #677ec8;
 }
 
 :root.dark {
-    --background: #0a0a0a;
+    --background: #272626;
     --foreground: #ededed;
 
     --default-text: #d9d9d9;
-    --green-text: #30e1b9;
+    --green-text: #158067;
     --pink-text: #ed8099;
-    --blue-text: #8fd3ff;
+    --blue-text: #2e5d7c;
     --orange: #e27d39;
-    --hover-orange: #fb9e5f;
+    --hover-orange: #eb9257;
 
-    --gray: #ababab;
-    --hover-gray: #c7c7c7;
-
-    --hover-green: #b0fcfe;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-
-        --default-text: #d9d9d9;
-        --green-text: #30e1b9;
-        --pink-text: #ed8099;
-        --blue-text: #8fd3ff;
-        --orange: #e27d39;
-        --hover-orange: #fb9e5f;
-
-        --gray: #ababab;
-        --hover-gray: #c7c7c7;
-
-        --hover-green: #b0fcfe;
-    }
+    --gray: #7c7979;
+    --hover-gray: #9c9898;
+    --hover-blue: #57768b;
+    --hover-green: #5a8f83;
 }
 
 body {
@@ -79,7 +61,7 @@ button {
     --color-head-500: var(--header-text);
     --color-gray-500: var(--gray);
     --color-hover-gray-500: var(--hover-gray);
-
+    --color-hover-blue: var(--hover-blue);
     --color-hover-green: var(--hover-green);
     --color-hover-orange: var(--hover-orange);
 
@@ -144,6 +126,10 @@ button {
 
     .card {
         @apply rounded-md border-3 border-default-500;
+    }
+
+    .button {
+        @apply cursor-pointer p-(--spacing-s) rounded-md border-3 border-default-500 text-[1rem] max-md:text-[0.75rem] text-default-500 font-semibold;
     }
 }
 

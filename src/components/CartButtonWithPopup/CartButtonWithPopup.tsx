@@ -32,7 +32,7 @@ export default function CartButtonWithPopup() {
             <button
                 ref={btnRef}
                 onClick={() => setOpen((v) => !v)}
-                className="relative p-(--spacing-s) card bg-orange-500 hover:bg-hover-orange small-text font-semibold"
+                className="relative button bg-orange-500 hover:bg-hover-orange"
                 aria-haspopup="true"
                 aria-expanded={open}
                 aria-controls="cart-popup"
@@ -81,7 +81,7 @@ export default function CartButtonWithPopup() {
                                     </span>
                                 </div>
                                 <Link
-                                    className="card text-center bg-green-500 hover:bg-hover-green disabled:bg-green-500 disabled:opacity-[0.4] py-(--spacing-s) rounded font-semibold cursor-pointer default-text"
+                                    className="text-center button bg-green-500 hover:bg-hover-green disabled:bg-green-500 disabled:opacity-[0.4] default-text"
                                     href="/checkout"
                                     onClick={() => {
                                         setOpen(false);
