@@ -25,7 +25,7 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const loggedIn = (await cookies()).get('loggedIn')?.value;
+    const loggedIn = (await cookies()).get('loggedIn')?.value === 'true';
 
     return (
         <html lang="en">

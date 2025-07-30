@@ -6,9 +6,9 @@ import ProductItem from '@/components/ProductItem';
 import AmountSpinner from '@/components/AmountSpinner';
 
 interface Props {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 export default async function ProductDetailPage({ params }: Props) {
