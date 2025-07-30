@@ -21,16 +21,13 @@ export default function LoginForm() {
             form.elements.namedItem('password') as HTMLInputElement
         ).value;
 
-        console.log('logging in...');
         const res = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log('login response: ', res);
 
         if (res.ok) {
-            console.log('redirecting... ', redirectTo);
             window.location.href = redirectTo;
             setIsSubmitting(false);
         } else {
