@@ -1,11 +1,11 @@
 import ProductList from '@/components/ProductList';
 import Sidebar from '@/components/Sidebar';
 
-type Props = {
+export default function Page({
+    searchParams,
+}: {
     searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default function Home({ searchParams }: Props) {
+}) {
     return (
         <div className="flex gap-(--spacing-m) sm:items-start h-full overflow-auto p-l py-xl">
             <Sidebar />
