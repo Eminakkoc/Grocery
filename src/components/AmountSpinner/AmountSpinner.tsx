@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCartStore } from '@/store/useCartStore';
 import { Product } from '@/types/Product';
 
@@ -11,10 +11,16 @@ type Props = {
 export default function AmountSpinner({ product }: Props) {
     const storeAmount = useCartStore((s) => s.getAmount(product.id));
     const addToCart = useCartStore((s) => s.addToCart);
-    const [input, setInput] = useState(storeAmount?.amount ?? 1);
+    const [input, setInput] = useState(1);
 
     const handleChange = (val: number) => setInput(Math.max(1, val));
 
+    // Sync with store amount after mount (client-side only)
+    useEffect(() => {
+        if (storeAmount?.amount !== undefined) {
+            setInput(storeAmount.amount);
+        }
+    }, [storeAmount?.amount]);
     return (
         <div className="flex flex-col gap-2 w-[170px]">
             <div>

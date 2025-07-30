@@ -6,7 +6,7 @@ import LoginErrorBoundary from '@/error/LoginErrorBoundary';
 export default function LoginPage() {
     return (
         <LoginErrorBoundary>
-            <LoginForm />{' '}
+            <LoginForm />
         </LoginErrorBoundary>
     );
 }

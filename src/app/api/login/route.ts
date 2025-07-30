@@ -7,7 +7,12 @@ export async function POST(req: Request) {
 
     if (username === USERNAME && password === PSSWRD) {
         const cookieStore = await cookies();
-        cookieStore.set('loggedIn', 'true', { httpOnly: true, path: '/' });
+        cookieStore.set('loggedIn', 'true', {
+            httpOnly: true,
+            path: '/',
+            sameSite: 'lax',
+            secure: true,
+        });
         return NextResponse.json({ success: true });
     }
 
