@@ -1,13 +1,11 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function LoginForm() {
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const router = useRouter();
     const searchParams = useSearchParams();
     const redirectTo = searchParams.get('redirectTo') ?? '/';
 
